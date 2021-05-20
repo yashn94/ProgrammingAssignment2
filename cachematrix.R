@@ -1,7 +1,7 @@
 # Create a function that calculates the inverse of a cached matrix
 
-#Set and get matrix and inverse
-
+# The function will be used to get and store the inverse of a matrix that is inputted into the function
+#Function will be used set and get a matrix and then set and get the calculation of its inverse
 
 # x refers to the matrix
 # i refers to the inverse
@@ -29,13 +29,13 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-# Calculate the inverse of the matrix  
-# 1 - Check to see if the the inverse has been calculated (to skip computation if it's done)
-# Else, calculate inverse
+# Calculate the inverse of the matrix or retrieve the inverse from the cache 
+# The function will check to see if the the inverse has been calculated (to skip computation if it's done)
+# Else, the function will calculate the inverse of the matrix
 
 
 #i refers to the inverse
-# matrix refers to the original matrix
+# matrix refers to the original matrix (ie. the dataset)
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   i <- x$get_inverse
@@ -45,9 +45,13 @@ cacheSolve <- function(x, ...) {
     #print inverse matrix from cache
     i
   }
+  #If not in the cache, get the matrix 
   matrix <- x$get()
+  #Calculate the inverse of the matrix
   i <- solve(matrix,...)
+  #Set the inverse
   x$set_inverse(i)
+  #Display the inverse
   i
 }
 
